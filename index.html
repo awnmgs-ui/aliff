@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliff - آلیف</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #667eea;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .animation-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            margin: 20px 0;
+            font-weight: 600;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .animation-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .animation-btn:active {
+            transform: translateY(-2px);
+        }
+
+        /* Animation Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            height: 500px;
+            background: #0a0a0a;
+            border-radius: 15px;
+            border: 2px solid #00d4ff;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            overflow: hidden;
+        }
+
+        #flowerCanvas {
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #00d4ff;
+            border: 2px solid #00d4ff;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #00d4ff;
+            color: #0a0a0a;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 1.8em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .social-link:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .social-link:active {
+            transform: translateY(-4px);
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            margin: 25px 0;
+        }
+
+        .footer {
+            font-size: 0.85em;
+            color: #999;
+            margin-top: 20px;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+                border-radius: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5em;
+            }
+
+            .tagline {
+                font-size: 1em;
+            }
+
+            .modal-content {
+                width: 95%;
+                height: 400px;
+            }
+
+            .animation-btn {
+                padding: 12px 24px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Image -->
+        <img src="https://i.postimg.cc/jqhq8XPx/file-000000005334820da133a5c189871003.png" alt="Aliff Profile" class="profile-image">
+
+        <!-- Title -->
+        <h1>Aliff</h1>
+        <p class="tagline">من هستم. همه چیز ساده است.</p>
+
+        <div class="divider"></div>
+
+        <!-- Animation Button -->
+        <button class="animation-btn" onclick="openAnimation()">✨ دیدن انیمیشن گل</button>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="https://instagram.com/5fxf_a" target="_blank" rel="noopener noreferrer" title="Instagram" class="social-link">📷</a>
+            <a href="https://t.me/Author_ffG" target="_blank" rel="noopener noreferrer" title="Telegram" class="social-link">✈️</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>✨ ساخته شده با ❤️ و سادگی</p>
+        </div>
+    </div>
+
+    <!-- Animation Modal -->
+    <div id="animationModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeAnimation()">✕</button>
+            <canvas id="flowerCanvas"></canvas>
+        </div>
+    </div>
+
+    <script>
+        let frames = 0;
+
+        function openAnimation() {
+            document.getElementById('animationModal').classList.add('active');
+            startAnimation();
+        }
+
+        function closeAnimation() {
+            document.getElementById('animationModal').classList.remove('active');
+            cancelAnimationFrame(animationId);
+        }
+
+        let animationId;
+
+        function startAnimation() {
+            const canvas = document.getElementById('flowerCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Set canvas size
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+
+            frames = 0;
+
+            function Draw() {
+                frames += 3;
+
+                const cw = canvas.width;
+                const ch = canvas.height;
+                const cx = cw / 2;
+                const cy = ch / 2;
+
+                ctx.clearRect(-cw, -ch, 2 * cw, 2 * ch);
+
+                let t = frames * Math.PI / 180;
+
+                // Flower parameters
+                const Rx = 80;
+                const Ry = 80;
+                const kx = 5;
+                const ky = 5;
+
+                // Draw petals
+                for (let i = 0; i < 8; i++) {
+                    let angle = (i * Math.PI * 2) / 8;
+
+                    let rx = Rx * Math.abs(Math.cos(angle));
+                    let ry = Ry * Math.abs(Math.sin(angle));
+
+                    let x = cx + rx * Math.sin(kx * t);
+                    let y = cy + ry * Math.sin(ky * t);
+
+                    let x1 = cx + rx * Math.sin(kx * t + Math.PI);
+                    let y1 = cy + ry * Math.sin(ky * t + Math.PI);
+
+                    let x2 = cx + rx * Math.sin(kx * t);
+                    let y2 = cy + ry * Math.sin(ky * t);
+
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
+                    ctx.quadraticCurveTo(x1, y1, x2, y2);
+                    ctx.strokeStyle = '#00d4ff';
+                    ctx.lineWidth = 2;
+                    ctx.globalCompositeOperation = 'lighter';
+                    ctx.stroke();
+                }
+
+                // Draw center glow
+                ctx.beginPath();
+                ctx.arc(cx, cy, 10, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 212, 255, 0.8)';
+                ctx.fill();
+
+                animationId = requestAnimationFrame(Draw);
+            }
+
+            Draw();
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('animationModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAnimation();
+            }
+        });
+    </script>
+</body>
+</html>
