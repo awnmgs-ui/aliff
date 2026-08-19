@@ -1,377 +1,1365 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aliff - آلیف</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            color: #333;
-        }
+<title>Aliff - آلیف</title>
 
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 40px 30px;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            animation: slideUp 0.6s ease-out;
-        }
+<style>
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .profile-image {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #667eea;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-            animation: pulse 2s ease-in-out infinite;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
+    background:
+        linear-gradient(
+            135deg,
+            #667eea 0%,
+            #764ba2 100%
+        );
 
-        h1 {
-            font-size: 2.5em;
-            color: #667eea;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
+    min-height: 100vh;
 
-        .tagline {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 30px;
-            font-style: italic;
-            font-weight: 300;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        .animation-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1em;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-            margin: 20px 0;
-            font-weight: 600;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    padding: 20px;
+}
 
-        .animation-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
-        }
+.container {
+    background: white;
 
-        .animation-btn:active {
-            transform: translateY(-2px);
-        }
+    width: 100%;
+    max-width: 500px;
 
-        /* Animation Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease;
-        }
+    padding: 40px 30px;
 
-        .modal.active {
-            display: flex;
-        }
+    border-radius: 20px;
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+    text-align: center;
 
-        .modal-content {
-            position: relative;
-            width: 90%;
-            max-width: 600px;
-            height: 500px;
-            background: #0a0a0a;
-            border-radius: 15px;
-            border: 2px solid #00d4ff;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-            overflow: hidden;
-        }
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.3);
 
-        #flowerCanvas {
-            width: 100% !important;
-            height: 100% !important;
-            display: block;
-        }
+    animation: slideUp .6s ease-out;
+}
 
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.8);
-            color: #00d4ff;
-            border: 2px solid #00d4ff;
-            padding: 8px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: bold;
-            z-index: 1001;
-            transition: all 0.3s ease;
-        }
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
 
-        .close-btn:hover {
-            background: #00d4ff;
-            color: #0a0a0a;
-        }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        .social-links {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
+.profile-image {
+    width: 140px;
+    height: 140px;
 
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            font-size: 1.8em;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
+    border-radius: 50%;
 
-        .social-link:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
-        }
+    object-fit: cover;
 
-        .social-link:active {
-            transform: translateY(-4px);
-        }
+    border: 5px solid #667eea;
 
-        .divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #667eea, transparent);
-            margin: 25px 0;
-        }
+    margin-bottom: 25px;
 
-        .footer {
-            font-size: 0.85em;
-            color: #999;
-            margin-top: 20px;
-        }
+    box-shadow:
+        0 10px 25px rgba(102,126,234,.3);
 
-        /* Mobile optimization */
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
-                border-radius: 15px;
-            }
+    animation: pulse 2s infinite;
+}
 
-            h1 {
-                font-size: 2em;
-            }
+@keyframes pulse {
 
-            .profile-image {
-                width: 120px;
-                height: 120px;
-            }
+    0%,100% {
+        transform: scale(1);
+    }
 
-            .social-link {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5em;
-            }
+    50% {
+        transform: scale(1.05);
+    }
 
-            .tagline {
-                font-size: 1em;
-            }
+}
 
-            .modal-content {
-                width: 95%;
-                height: 400px;
-            }
+h1 {
+    color: #667eea;
 
-            .animation-btn {
-                padding: 12px 24px;
-                font-size: 0.95em;
-            }
-        }
-    </style>
+    font-size: 2.5em;
+
+    margin-bottom: 10px;
+}
+
+.tagline {
+    color: #666;
+
+    font-size: 1.1em;
+
+    margin-bottom: 30px;
+
+    font-style: italic;
+}
+
+.divider {
+    height: 2px;
+
+    margin: 25px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #667eea,
+            transparent
+        );
+}
+
+.animation-btn {
+    border: none;
+
+    color: white;
+
+    cursor: pointer;
+
+    padding: 15px 30px;
+
+    border-radius: 12px;
+
+    font-size: 1em;
+
+    font-weight: 600;
+
+    background:
+        linear-gradient(
+            135deg,
+            #667eea,
+            #764ba2
+        );
+
+    box-shadow:
+        0 5px 15px rgba(102,126,234,.4);
+
+    transition: .3s;
+}
+
+.animation-btn:hover {
+    transform: translateY(-4px);
+}
+
+.social-links {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.social-link {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 1.7em;
+
+    background:
+        linear-gradient(
+            135deg,
+            #667eea,
+            #764ba2
+        );
+}
+
+.footer {
+    margin-top: 20px;
+
+    color: #999;
+
+    font-size: .85em;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(0,0,0,.94);
+
+    z-index: 1000;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+
+    position: relative;
+
+    width: 92%;
+
+    max-width: 650px;
+
+    height: 550px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #101b2b,
+            #020408 70%
+        );
+
+    border-radius: 20px;
+
+    border: 2px solid #00d4ff;
+
+    box-shadow:
+        0 0 40px rgba(0,212,255,.35);
+
+    overflow: hidden;
+}
+
+#flowerCanvas {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+}
+
+.close-btn {
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    z-index: 10;
+
+    background:
+        rgba(0,0,0,.8);
+
+    color: #00d4ff;
+
+    border:
+        2px solid #00d4ff;
+
+    border-radius: 10px;
+
+    padding: 8px 15px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+@media(max-width:600px) {
+
+    .container {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .modal-content {
+        width: 95%;
+        height: 430px;
+    }
+
+}
+
+</style>
 </head>
+
+
 <body>
-    <div class="container">
-        <!-- Profile Image -->
-        <img src="https://i.postimg.cc/jqhq8XPx/file-000000005334820da133a5c189871003.png" alt="Aliff Profile" class="profile-image">
 
-        <!-- Title -->
-        <h1>Aliff</h1>
-        <p class="tagline">من هستم. همه چیز ساده است.</p>
 
-        <div class="divider"></div>
+<div class="container">
 
-        <!-- Animation Button -->
-        <button class="animation-btn" onclick="openAnimation()">✨ دیدن انیمیشن گل</button>
+    <img
+        src="https://i.postimg.cc/jqhq8XPx/file-000000005334820da133a5c189871003.png"
+        class="profile-image"
+        alt="Aliff"
+    >
 
-        <!-- Social Links -->
-        <div class="social-links">
-            <a href="https://instagram.com/5fxf_a" target="_blank" rel="noopener noreferrer" title="Instagram" class="social-link">📷</a>
-            <a href="https://t.me/Author_ffG" target="_blank" rel="noopener noreferrer" title="Telegram" class="social-link">✈️</a>
-        </div>
+    <h1>Aliff</h1>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>✨ ساخته شده با ❤️ و سادگی</p>
-        </div>
+    <p class="tagline">
+        من هستم. همه چیز ساده است.
+    </p>
+
+    <div class="divider"></div>
+
+    <button
+        class="animation-btn"
+        onclick="openAnimation()"
+    >
+        🌸 دیدن انیمیشن گل
+    </button>
+
+    <div class="social-links">
+
+        <a
+            href="https://instagram.com/5fxf_a"
+            target="_blank"
+            class="social-link"
+        >
+            📷
+        </a>
+
+        <a
+            href="https://t.me/Author_ffG"
+            target="_blank"
+            class="social-link"
+        >
+            ✈️
+        </a>
+
     </div>
 
-    <!-- Animation Modal -->
-    <div id="animationModal" class="modal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeAnimation()">✕</button>
-            <canvas id="flowerCanvas"></canvas>
-        </div>
+    <div class="footer">
+        ✨ ساخته شده با ❤️ و سادگی
     </div>
 
-    <script>
-        let frames = 0;
+</div>
 
-        function openAnimation() {
-            document.getElementById('animationModal').classList.add('active');
-            startAnimation();
+
+<!-- =========================
+     FLOWER MODAL
+========================= -->
+
+<div
+    id="animationModal"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+        <button
+            class="close-btn"
+            onclick="closeAnimation()"
+        >
+            ✕
+        </button>
+
+        <canvas id="flowerCanvas"></canvas>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==================================================
+   تنظیمات اصلی
+================================================== */
+
+const modal =
+    document.getElementById("animationModal");
+
+const canvas =
+    document.getElementById("flowerCanvas");
+
+const ctx =
+    canvas.getContext("2d");
+
+let animationId = null;
+
+let frame = 0;
+
+let running = false;
+
+
+/* ==================================================
+   رنگ گلبرگ‌ها
+================================================== */
+
+const petalColors = [
+
+    ["#ff1744", "#ff8a80"],
+
+    ["#ff6d00", "#ffb74d"],
+
+    ["#ffc400", "#fff176"],
+
+    ["#76ff03", "#b9f6ca"],
+
+    ["#00e676", "#69f0ae"],
+
+    ["#00e5ff", "#80deea"],
+
+    ["#2979ff", "#82b1ff"],
+
+    ["#7c4dff", "#b388ff"]
+
+];
+
+
+/* ==================================================
+   اندازه Canvas
+================================================== */
+
+function resizeCanvas() {
+
+    const rect =
+        canvas.getBoundingClientRect();
+
+    const dpr =
+        window.devicePixelRatio || 1;
+
+    canvas.width =
+        rect.width * dpr;
+
+    canvas.height =
+        rect.height * dpr;
+
+    ctx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+    );
+}
+
+
+/* ==================================================
+   باز کردن گل
+================================================== */
+
+function openAnimation() {
+
+    modal.classList.add("active");
+
+    requestAnimationFrame(() => {
+
+        resizeCanvas();
+
+        startFlower();
+
+    });
+}
+
+
+/* ==================================================
+   بستن گل
+================================================== */
+
+function closeAnimation() {
+
+    running = false;
+
+    modal.classList.remove("active");
+
+    if (animationId !== null) {
+
+        cancelAnimationFrame(
+            animationId
+        );
+
+        animationId = null;
+    }
+}
+
+
+/* ==================================================
+   تابع easing
+================================================== */
+
+function easeOut(t) {
+
+    return 1 -
+        Math.pow(
+            1 - t,
+            3
+        );
+}
+
+
+/* ==================================================
+   رسم گلبرگ سه‌بعدی
+================================================== */
+
+function drawPetal(
+    cx,
+    cy,
+    angle,
+    length,
+    width,
+    progress,
+    colors,
+    rotation
+) {
+
+    if (progress <= 0)
+        return;
+
+
+    /*
+     * پیشرفت رشد گلبرگ
+     */
+
+    const p =
+        easeOut(
+            Math.min(
+                progress,
+                1
+            )
+        );
+
+
+    /*
+     * طول فعلی
+     */
+
+    const L =
+        length * p;
+
+
+    /*
+     * خم شدن گلبرگ
+     */
+
+    const bend =
+        Math.sin(
+            p * Math.PI
+        ) * 45;
+
+
+    /*
+     * مرکز گلبرگ
+     */
+
+    const dx =
+        Math.cos(angle);
+
+    const dy =
+        Math.sin(angle);
+
+
+    /*
+     * نقطه انتهایی
+     */
+
+    const tipX =
+        cx +
+        dx * L +
+        Math.cos(
+            angle + Math.PI / 2
+        ) * bend;
+
+
+    const tipY =
+        cy +
+        dy * L +
+        Math.sin(
+            angle + Math.PI / 2
+        ) * bend;
+
+
+    /*
+     * عمود بر جهت گلبرگ
+     */
+
+    const px =
+        -Math.sin(angle);
+
+    const py =
+        Math.cos(angle);
+
+
+    /*
+     * عرض گلبرگ
+     */
+
+    const W =
+        width * p;
+
+
+    /*
+     * نقاط کناری
+     */
+
+    const leftX =
+        cx +
+        px * W * .12;
+
+    const leftY =
+        cy +
+        py * W * .12;
+
+
+    const rightX =
+        cx -
+        px * W * .12;
+
+    const rightY =
+        cy -
+        py * W * .12;
+
+
+    /*
+     * نقاط میانی برای فرم سه‌بعدی
+     */
+
+    const midX =
+        cx +
+        dx * L * .52;
+
+    const midY =
+        cy +
+        dy * L * .52;
+
+
+    const sideX =
+        px *
+        W *
+        .55;
+
+
+    const sideY =
+        py *
+        W *
+        .55;
+
+
+    /*
+     * گرادیان سه‌بعدی
+     */
+
+    const gradient =
+        ctx.createLinearGradient(
+            cx,
+            cy,
+            tipX,
+            tipY
+        );
+
+
+    gradient.addColorStop(
+        0,
+        colors[0]
+    );
+
+    gradient.addColorStop(
+        .35,
+        colors[1]
+    );
+
+    gradient.addColorStop(
+        .7,
+        colors[0]
+    );
+
+    gradient.addColorStop(
+        1,
+        "#180018"
+    );
+
+
+    /*
+     * شکل گلبرگ
+     */
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        leftX,
+        leftY
+    );
+
+
+    ctx.bezierCurveTo(
+
+        midX + sideX,
+        midY + sideY,
+
+        tipX + px * W * .15,
+        tipY + py * W * .15,
+
+        tipX,
+        tipY
+    );
+
+
+    ctx.bezierCurveTo(
+
+        tipX - px * W * .15,
+        tipY - py * W * .15,
+
+        midX - sideX,
+        midY - sideY,
+
+        rightX,
+        rightY
+    );
+
+
+    ctx.quadraticCurveTo(
+        cx,
+        cy,
+        leftX,
+        leftY
+    );
+
+
+    ctx.closePath();
+
+
+    /*
+     * سایه بیرونی
+     */
+
+    ctx.shadowBlur =
+        18 * p;
+
+    ctx.shadowColor =
+        colors[0];
+
+
+    ctx.fillStyle =
+        gradient;
+
+    ctx.fill();
+
+
+    ctx.shadowBlur = 0;
+
+
+    /*
+     * خط روشن روی گلبرگ
+     */
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        cx,
+        cy
+    );
+
+    ctx.quadraticCurveTo(
+
+        midX +
+        px * W * .25,
+
+        midY +
+        py * W * .25,
+
+        tipX,
+        tipY
+    );
+
+
+    ctx.strokeStyle =
+        "rgba(255,255,255,.45)";
+
+    ctx.lineWidth =
+        Math.max(
+            1,
+            2 * p
+        );
+
+    ctx.stroke();
+
+
+    /*
+     * رگه‌های گلبرگ
+     */
+
+    for (
+        let vein = 1;
+        vein <= 4;
+        vein++
+    ) {
+
+        const vp =
+            vein / 5;
+
+        const vx =
+            cx +
+            (tipX - cx) *
+            vp;
+
+        const vy =
+            cy +
+            (tipY - cy) *
+            vp;
+
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            vx,
+            vy
+        );
+
+        ctx.lineTo(
+            vx +
+            px * W * .25,
+
+            vy +
+            py * W * .25
+        );
+
+        ctx.strokeStyle =
+            "rgba(255,255,255,.16)";
+
+        ctx.lineWidth = .8;
+
+        ctx.stroke();
+    }
+
+}
+
+
+/* ==================================================
+   رسم مرکز گل
+================================================== */
+
+function drawCenter(
+    cx,
+    cy,
+    progress
+) {
+
+    const p =
+        easeOut(
+            Math.min(
+                progress,
+                1
+            )
+        );
+
+
+    const radius =
+        10 +
+        p * 15;
+
+
+    /*
+     * هاله
+     */
+
+    const glow =
+        ctx.createRadialGradient(
+            cx,
+            cy,
+            0,
+            cx,
+            cy,
+            radius * 3
+        );
+
+
+    glow.addColorStop(
+        0,
+        "#ffffff"
+    );
+
+    glow.addColorStop(
+        .15,
+        "#fff700"
+    );
+
+    glow.addColorStop(
+        .4,
+        "rgba(255,140,0,.7)"
+    );
+
+    glow.addColorStop(
+        1,
+        "rgba(255,50,0,0)"
+    );
+
+
+    ctx.fillStyle =
+        glow;
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+        cx,
+        cy,
+        radius * 3,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+
+    /*
+     * دانه‌های مرکز
+     */
+
+    for (
+        let i = 0;
+        i < 28;
+        i++
+    ) {
+
+        const a =
+            i *
+            Math.PI *
+            2 /
+            28;
+
+
+        const r =
+            radius *
+            .55;
+
+
+        const x =
+            cx +
+            Math.cos(a) *
+            r;
+
+
+        const y =
+            cy +
+            Math.sin(a) *
+            r;
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            x,
+            y,
+            2.2,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            i % 2 === 0
+            ? "#ffd600"
+            : "#ff9100";
+
+        ctx.fill();
+
+    }
+
+}
+
+
+/* ==================================================
+   شروع انیمیشن
+================================================== */
+
+function startFlower() {
+
+    if (running)
+        return;
+
+
+    running = true;
+
+    frame = 0;
+
+
+    function animate() {
+
+        if (
+            !running ||
+            !modal.classList.contains(
+                "active"
+            )
+        ) {
+
+            animationId = null;
+
+            return;
         }
 
-        function closeAnimation() {
-            document.getElementById('animationModal').classList.remove('active');
-            cancelAnimationFrame(animationId);
+
+        const rect =
+            canvas.getBoundingClientRect();
+
+
+        const cw =
+            rect.width;
+
+        const ch =
+            rect.height;
+
+
+        const cx =
+            cw / 2;
+
+        const cy =
+            ch / 2;
+
+
+        const dpr =
+            window.devicePixelRatio || 1;
+
+
+        ctx.setTransform(
+            dpr,
+            0,
+            0,
+            dpr,
+            0,
+            0
+        );
+
+
+        /*
+         * پاک کردن
+         */
+
+        ctx.clearRect(
+            0,
+            0,
+            cw,
+            ch
+        );
+
+
+        /*
+         * پس‌زمینه
+         */
+
+        const bg =
+            ctx.createRadialGradient(
+                cx,
+                cy,
+                0,
+                cx,
+                cy,
+                Math.max(cw,ch) * .7
+            );
+
+
+        bg.addColorStop(
+            0,
+            "#101d32"
+        );
+
+        bg.addColorStop(
+            .5,
+            "#050b15"
+        );
+
+        bg.addColorStop(
+            1,
+            "#000000"
+        );
+
+
+        ctx.fillStyle =
+            bg;
+
+
+        ctx.fillRect(
+            0,
+            0,
+            cw,
+            ch
+        );
+
+
+        /*
+         * گلبرگ‌ها یکی‌یکی ظاهر شوند
+         */
+
+        const petalCount = 8;
+
+        const length =
+            Math.min(
+                cw,
+                ch
+            ) * .34;
+
+
+        const width =
+            Math.min(
+                cw,
+                ch
+            ) * .20;
+
+
+        /*
+         * هر گلبرگ با فاصله
+         */
+
+        for (
+            let i = 0;
+            i < petalCount;
+            i++
+        ) {
+
+            const delay =
+                i * 22;
+
+
+            const progress =
+                (
+                    frame -
+                    delay
+                ) / 65;
+
+
+            /*
+             * زاویه گلبرگ
+             */
+
+            const angle =
+                i *
+                Math.PI *
+                2 /
+                petalCount
+                +
+                Math.sin(
+                    frame * .004
+                ) * .04;
+
+
+            /*
+             * حرکت آرام بعد از کامل شدن
+             */
+
+            const finalProgress =
+                Math.max(
+                    0,
+                    progress
+                );
+
+
+            drawPetal(
+
+                cx,
+                cy,
+
+                angle,
+
+                length,
+
+                width,
+
+                finalProgress,
+
+                petalColors[i],
+
+                0
+            );
+
         }
 
-        let animationId;
 
-        function startAnimation() {
-            const canvas = document.getElementById('flowerCanvas');
-            const ctx = canvas.getContext('2d');
+        /*
+         * مرکز گل
+         */
 
-            // Set canvas size
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
+        const centerProgress =
+            Math.max(
+                0,
+                (frame - 150) / 40
+            );
 
-            frames = 0;
 
-            function Draw() {
-                frames += 3;
+        drawCenter(
+            cx,
+            cy,
+            centerProgress
+        );
 
-                const cw = canvas.width;
-                const ch = canvas.height;
-                const cx = cw / 2;
-                const cy = ch / 2;
 
-                ctx.clearRect(-cw, -ch, 2 * cw, 2 * ch);
+        /*
+         * ذرات کوچک اطراف گل
+         */
 
-                let t = frames * Math.PI / 180;
+        if (frame > 150) {
 
-                // Flower parameters
-                const Rx = 80;
-                const Ry = 80;
-                const kx = 5;
-                const ky = 5;
+            for (
+                let i = 0;
+                i < 18;
+                i++
+            ) {
 
-                // Draw petals
-                for (let i = 0; i < 8; i++) {
-                    let angle = (i * Math.PI * 2) / 8;
+                const a =
+                    i * .9 +
+                    frame * .002;
 
-                    let rx = Rx * Math.abs(Math.cos(angle));
-                    let ry = Ry * Math.abs(Math.sin(angle));
 
-                    let x = cx + rx * Math.sin(kx * t);
-                    let y = cy + ry * Math.sin(ky * t);
+                const r =
+                    length *
+                    (
+                        1.15 +
+                        Math.sin(
+                            frame * .01 +
+                            i
+                        ) * .08
+                    );
 
-                    let x1 = cx + rx * Math.sin(kx * t + Math.PI);
-                    let y1 = cy + ry * Math.sin(ky * t + Math.PI);
 
-                    let x2 = cx + rx * Math.sin(kx * t);
-                    let y2 = cy + ry * Math.sin(ky * t);
+                const x =
+                    cx +
+                    Math.cos(a) *
+                    r;
 
-                    ctx.beginPath();
-                    ctx.moveTo(x, y);
-                    ctx.quadraticCurveTo(x1, y1, x2, y2);
-                    ctx.strokeStyle = '#00d4ff';
-                    ctx.lineWidth = 2;
-                    ctx.globalCompositeOperation = 'lighter';
-                    ctx.stroke();
-                }
 
-                // Draw center glow
+                const y =
+                    cy +
+                    Math.sin(a) *
+                    r;
+
+
                 ctx.beginPath();
-                ctx.arc(cx, cy, 10, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 212, 255, 0.8)';
+
+                ctx.arc(
+                    x,
+                    y,
+                    1.3,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fillStyle =
+                    "rgba(255,255,255,.55)";
+
                 ctx.fill();
 
-                animationId = requestAnimationFrame(Draw);
             }
 
-            Draw();
         }
 
-        // Close modal when clicking outside
-        document.getElementById('animationModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeAnimation();
-            }
-        });
-    </script>
+
+        frame++;
+
+
+        animationId =
+            requestAnimationFrame(
+                animate
+            );
+
+    }
+
+
+    animate();
+}
+
+
+/* ==================================================
+   کلیک بیرون Modal
+================================================== */
+
+modal.addEventListener(
+    "click",
+    function(e) {
+
+        if (
+            e.target === modal
+        ) {
+
+            closeAnimation();
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   Escape
+================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(e) {
+
+        if (
+            e.key === "Escape" &&
+            modal.classList.contains(
+                "active"
+            )
+        ) {
+
+            closeAnimation();
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   تغییر اندازه صفحه
+================================================== */
+
+window.addEventListener(
+    "resize",
+    function() {
+
+        if (
+            modal.classList.contains(
+                "active"
+            )
+        ) {
+
+            resizeCanvas();
+
+        }
+
+    }
+);
+
+</script>
+
 </body>
 </html>
