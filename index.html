@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
 <title>Aliff - آلیف</title>
 
 <style>
-
 * {
     margin: 0;
     padding: 0;
@@ -16,212 +14,121 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    background:
-        linear-gradient(
-            135deg,
-            #667eea 0%,
-            #764ba2 100%
-        );
-
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     min-height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 20px;
 }
 
 .container {
     background: white;
-
     width: 100%;
     max-width: 500px;
-
     padding: 40px 30px;
-
     border-radius: 20px;
-
     text-align: center;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.3);
-
-    animation: slideUp .6s ease-out;
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    box-shadow: 0 20px 60px rgba(0,0,0,.3);
 }
 
 .profile-image {
     width: 140px;
     height: 140px;
-
     border-radius: 50%;
-
     object-fit: cover;
-
     border: 5px solid #667eea;
-
     margin-bottom: 25px;
-
-    box-shadow:
-        0 10px 25px rgba(102,126,234,.3);
-
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-
-    0%,100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
-    }
-
+    box-shadow: 0 10px 25px rgba(102,126,234,.3);
 }
 
 h1 {
     color: #667eea;
-
     font-size: 2.5em;
-
     margin-bottom: 10px;
 }
 
 .tagline {
     color: #666;
-
     font-size: 1.1em;
-
     margin-bottom: 30px;
-
-    font-style: italic;
 }
 
 .divider {
     height: 2px;
-
     margin: 25px 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #667eea,
+        transparent
+    );
+}
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #667eea,
-            transparent
-        );
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .animation-btn {
     border: none;
-
     color: white;
-
     cursor: pointer;
-
     padding: 15px 30px;
-
     border-radius: 12px;
-
     font-size: 1em;
-
     font-weight: 600;
-
-    background:
-        linear-gradient(
-            135deg,
-            #667eea,
-            #764ba2
-        );
-
-    box-shadow:
-        0 5px 15px rgba(102,126,234,.4);
-
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    box-shadow: 0 5px 15px rgba(102,126,234,.4);
     transition: .3s;
 }
 
 .animation-btn:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
+}
+
+.robot-btn {
+    background: linear-gradient(135deg, #00b4db, #0083b0);
 }
 
 .social-links {
     display: flex;
-
     justify-content: center;
-
     gap: 15px;
-
     margin-top: 30px;
 }
 
 .social-link {
     width: 55px;
     height: 55px;
-
     border-radius: 50%;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     color: white;
-
     text-decoration: none;
-
     font-size: 1.7em;
-
-    background:
-        linear-gradient(
-            135deg,
-            #667eea,
-            #764ba2
-        );
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .footer {
     margin-top: 20px;
-
     color: #999;
-
     font-size: .85em;
 }
-
 
 /* =========================
    MODAL
 ========================= */
 
 .modal {
-
     display: none;
-
     position: fixed;
-
     inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background:
-        rgba(0,0,0,.94);
-
+    background: rgba(0,0,0,.94);
     z-index: 1000;
-
     align-items: center;
     justify-content: center;
 }
@@ -231,72 +138,70 @@ h1 {
 }
 
 .modal-content {
-
     position: relative;
-
-    width: 92%;
-
-    max-width: 650px;
-
-    height: 550px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #101b2b,
-            #020408 70%
-        );
-
+    width: 94%;
+    max-width: 750px;
+    height: 600px;
+    background: radial-gradient(
+        circle at center,
+        #101b2b,
+        #020408 70%
+    );
     border-radius: 20px;
-
     border: 2px solid #00d4ff;
-
-    box-shadow:
-        0 0 40px rgba(0,212,255,.35);
-
+    box-shadow: 0 0 40px rgba(0,212,255,.35);
     overflow: hidden;
 }
 
-#flowerCanvas {
-
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    display: block;
-}
-
 .close-btn {
-
     position: absolute;
-
     top: 15px;
     right: 15px;
-
-    z-index: 10;
-
-    background:
-        rgba(0,0,0,.8);
-
+    z-index: 20;
+    background: rgba(0,0,0,.8);
     color: #00d4ff;
-
-    border:
-        2px solid #00d4ff;
-
+    border: 2px solid #00d4ff;
     border-radius: 10px;
-
     padding: 8px 15px;
-
     cursor: pointer;
-
     font-size: 18px;
 }
 
-@media(max-width:600px) {
+#robotCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
 
+.robot-status {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    z-index: 10;
+    background: rgba(0,0,0,.65);
+    color: #fff;
+    border: 1px solid rgba(0,212,255,.5);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#flowerCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.flower-modal .modal-content {
+    max-width: 650px;
+    height: 550px;
+}
+
+@media(max-width:600px) {
     .container {
         padding: 30px 20px;
     }
@@ -312,17 +217,13 @@ h1 {
 
     .modal-content {
         width: 95%;
-        height: 430px;
+        height: 500px;
     }
-
 }
-
 </style>
 </head>
 
-
 <body>
-
 
 <div class="container">
 
@@ -340,12 +241,23 @@ h1 {
 
     <div class="divider"></div>
 
-    <button
-        class="animation-btn"
-        onclick="openAnimation()"
-    >
-        🌸 دیدن انیمیشن گل
-    </button>
+    <div class="buttons">
+
+        <button
+            class="animation-btn robot-btn"
+            onclick="openRobot()"
+        >
+            🤖 اجرای ربات سه‌بعدی
+        </button>
+
+        <button
+            class="animation-btn"
+            onclick="openFlower()"
+        >
+            🌸 دیدن انیمیشن گل
+        </button>
+
+    </div>
 
     <div class="social-links">
 
@@ -375,19 +287,42 @@ h1 {
 
 
 <!-- =========================
-     FLOWER MODAL
+     ROBOT MODAL
 ========================= -->
 
-<div
-    id="animationModal"
-    class="modal"
->
+<div id="robotModal" class="modal">
 
     <div class="modal-content">
 
         <button
             class="close-btn"
-            onclick="closeAnimation()"
+            onclick="closeRobot()"
+        >
+            ✕
+        </button>
+
+        <canvas id="robotCanvas"></canvas>
+
+        <div id="robotStatus" class="robot-status">
+            در حال بارگذاری ربات...
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     FLOWER MODAL
+========================= -->
+
+<div id="flowerModal" class="modal flower-modal">
+
+    <div class="modal-content">
+
+        <button
+            class="close-btn"
+            onclick="closeFlower()"
         >
             ✕
         </button>
@@ -399,69 +334,587 @@ h1 {
 </div>
 
 
-<script>
+<!-- THREE.JS -->
 
-/* ==================================================
-   تنظیمات اصلی
-================================================== */
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+}
+</script>
 
-const modal =
-    document.getElementById("animationModal");
 
-const canvas =
-    document.getElementById("flowerCanvas");
+<script type="module">
+
+import * as THREE from "three";
+
+import {
+    OrbitControls
+} from "three/addons/controls/OrbitControls.js";
+
+import {
+    GLTFLoader
+} from "three/addons/loaders/GLTFLoader.js";
+
+
+/* =========================
+   ROBOT
+========================= */
+
+const robotModal =
+    document.getElementById("robotModal");
+
+const robotCanvas =
+    document.getElementById("robotCanvas");
+
+const robotStatus =
+    document.getElementById("robotStatus");
+
+let robotScene;
+let robotCamera;
+let robotRenderer;
+let robotControls;
+let robotModel;
+let robotMixer;
+let robotClock;
+
+let robotAnimationId = null;
+
+
+/* =========================
+   باز کردن ربات
+========================= */
+
+window.openRobot = function() {
+
+    robotModal.classList.add("active");
+
+    if (!robotRenderer) {
+        initRobot();
+    }
+
+};
+
+
+/* =========================
+   بستن ربات
+========================= */
+
+window.closeRobot = function() {
+
+    robotModal.classList.remove("active");
+
+    if (robotAnimationId) {
+
+        cancelAnimationFrame(
+            robotAnimationId
+        );
+
+        robotAnimationId = null;
+    }
+
+};
+
+
+/* =========================
+   ساخت محیط سه‌بعدی
+========================= */
+
+function initRobot() {
+
+    robotStatus.textContent =
+        "در حال بارگذاری ربات...";
+
+    robotScene =
+        new THREE.Scene();
+
+    robotScene.background =
+        new THREE.Color(0x050b15);
+
+
+    /* دوربین */
+
+    robotCamera =
+        new THREE.PerspectiveCamera(
+            45,
+            1,
+            0.1,
+            1000
+        );
+
+    robotCamera.position.set(
+        0,
+        1.5,
+        4
+    );
+
+
+    /* رندر */
+
+    robotRenderer =
+        new THREE.WebGLRenderer({
+            canvas: robotCanvas,
+            antialias: true,
+            alpha: true
+        });
+
+    robotRenderer.setPixelRatio(
+        Math.min(
+            window.devicePixelRatio,
+            2
+        )
+    );
+
+
+    /* کنترل دوربین */
+
+    robotControls =
+        new OrbitControls(
+            robotCamera,
+            robotRenderer.domElement
+        );
+
+    robotControls.enableDamping = true;
+
+    robotControls.target.set(
+        0,
+        1,
+        0
+    );
+
+
+    /* نور */
+
+    const ambient =
+        new THREE.HemisphereLight(
+            0xffffff,
+            0x222244,
+            2
+        );
+
+    robotScene.add(
+        ambient
+    );
+
+
+    const light =
+        new THREE.DirectionalLight(
+            0xffffff,
+            3
+        );
+
+    light.position.set(
+        3,
+        5,
+        4
+    );
+
+    robotScene.add(
+        light
+    );
+
+
+    /* نور آبی */
+
+    const blueLight =
+        new THREE.PointLight(
+            0x00d4ff,
+            20,
+            10
+        );
+
+    blueLight.position.set(
+        -2,
+        2,
+        2
+    );
+
+    robotScene.add(
+        blueLight
+    );
+
+
+    /* زمین */
+
+    const ground =
+        new THREE.Mesh(
+            new THREE.CircleGeometry(
+                4,
+                64
+            ),
+            new THREE.MeshStandardMaterial({
+                color: 0x07111f,
+                metalness: .4,
+                roughness: .7
+            })
+        );
+
+    ground.rotation.x =
+        -Math.PI / 2;
+
+    ground.position.y = -0.01;
+
+    robotScene.add(
+        ground
+    );
+
+
+    /* لود مدل */
+
+    const loader =
+        new GLTFLoader();
+
+
+    loader.load(
+
+        "./rigged-model.glb",
+
+        function(gltf) {
+
+            robotModel =
+                gltf.scene;
+
+            robotScene.add(
+                robotModel
+            );
+
+
+            /* اندازه مدل */
+
+            const box =
+                new THREE.Box3()
+                    .setFromObject(
+                        robotModel
+                    );
+
+            const size =
+                box.getSize(
+                    new THREE.Vector3()
+                );
+
+            const center =
+                box.getCenter(
+                    new THREE.Vector3()
+                );
+
+
+            const maxSize =
+                Math.max(
+                    size.x,
+                    size.y,
+                    size.z
+                );
+
+
+            if (maxSize > 0) {
+
+                const scale =
+                    2.2 / maxSize;
+
+                robotModel.scale.setScalar(
+                    scale
+                );
+
+            }
+
+
+            /* مرکز کردن */
+
+            const newBox =
+                new THREE.Box3()
+                    .setFromObject(
+                        robotModel
+                    );
+
+            const newCenter =
+                newBox.getCenter(
+                    new THREE.Vector3()
+                );
+
+            robotModel.position.x -=
+                newCenter.x;
+
+            robotModel.position.z -=
+                newCenter.z;
+
+            robotModel.position.y -=
+                newBox.min.y;
+
+
+            /* انیمیشن */
+
+            if (
+                gltf.animations &&
+                gltf.animations.length > 0
+            ) {
+
+                robotMixer =
+                    new THREE.AnimationMixer(
+                        robotModel
+                    );
+
+                const animations =
+                    gltf.animations;
+
+                let selectedAnimation =
+                    animations.find(
+                        a =>
+                            /walk|walking|run|running/i
+                                .test(a.name)
+                    );
+
+
+                if (!selectedAnimation) {
+
+                    selectedAnimation =
+                        animations[0];
+
+                }
+
+
+                const action =
+                    robotMixer.clipAction(
+                        selectedAnimation
+                    );
+
+                action.reset();
+
+                action.play();
+
+
+                robotStatus.textContent =
+                    "🤖 ربات آماده است — " +
+                    selectedAnimation.name;
+
+            } else {
+
+                robotStatus.textContent =
+                    "🤖 مدل لود شد، اما انیمیشنی داخل فایل پیدا نشد.";
+
+            }
+
+
+            resizeRobot();
+
+        },
+
+        function(progress) {
+
+            if (
+                progress.total > 0
+            ) {
+
+                const percent =
+                    Math.round(
+                        progress.loaded /
+                        progress.total *
+                        100
+                    );
+
+                robotStatus.textContent =
+                    "در حال بارگذاری ربات... " +
+                    percent +
+                    "%";
+            }
+
+        },
+
+        function(error) {
+
+            console.error(error);
+
+            robotStatus.textContent =
+                "❌ مدل پیدا نشد. مطمئن شو rigged-model.glb کنار index.html در GitHub قرار دارد.";
+
+        }
+
+    );
+
+
+    robotClock =
+        new THREE.Clock();
+
+
+    animateRobot();
+
+    resizeRobot();
+
+}
+
+
+/* =========================
+   اندازه ربات
+========================= */
+
+function resizeRobot() {
+
+    if (!robotRenderer)
+        return;
+
+
+    const width =
+        robotCanvas.clientWidth;
+
+    const height =
+        robotCanvas.clientHeight;
+
+
+    if (
+        width <= 0 ||
+        height <= 0
+    )
+        return;
+
+
+    robotRenderer.setSize(
+        width,
+        height,
+        false
+    );
+
+
+    robotCamera.aspect =
+        width / height;
+
+    robotCamera.updateProjectionMatrix();
+
+}
+
+
+/* =========================
+   انیمیشن ربات
+========================= */
+
+function animateRobot() {
+
+    robotAnimationId =
+        requestAnimationFrame(
+            animateRobot
+        );
+
+
+    if (
+        !robotModal.classList.contains(
+            "active"
+        )
+    )
+        return;
+
+
+    const delta =
+        robotClock
+            ? robotClock.getDelta()
+            : 0;
+
+
+    if (robotMixer) {
+
+        robotMixer.update(
+            delta
+        );
+
+    }
+
+
+    if (robotControls) {
+
+        robotControls.update();
+
+    }
+
+
+    robotRenderer.render(
+        robotScene,
+        robotCamera
+    );
+
+}
+
+
+/* =========================
+   تغییر اندازه صفحه
+========================= */
+
+window.addEventListener(
+    "resize",
+    resizeRobot
+);
+
+
+/* =========================
+   بستن با کلیک بیرون
+========================= */
+
+robotModal.addEventListener(
+    "click",
+    function(e) {
+
+        if (
+            e.target === robotModal
+        ) {
+
+            closeRobot();
+
+        }
+
+    }
+);
+
+
+/* ==========================================================
+   FLOWER ANIMATION
+========================================================== */
+
+const flowerModal =
+    document.getElementById(
+        "flowerModal"
+    );
+
+const flowerCanvas =
+    document.getElementById(
+        "flowerCanvas"
+    );
 
 const ctx =
-    canvas.getContext("2d");
+    flowerCanvas.getContext(
+        "2d"
+    );
 
-let animationId = null;
+let flowerAnimationId = null;
 
 let frame = 0;
 
 let running = false;
 
 
-/* ==================================================
-   رنگ گلبرگ‌ها
-================================================== */
-
 const petalColors = [
 
     ["#ff1744", "#ff8a80"],
-
     ["#ff6d00", "#ffb74d"],
-
     ["#ffc400", "#fff176"],
-
     ["#76ff03", "#b9f6ca"],
-
     ["#00e676", "#69f0ae"],
-
     ["#00e5ff", "#80deea"],
-
     ["#2979ff", "#82b1ff"],
-
     ["#7c4dff", "#b388ff"]
 
 ];
 
 
-/* ==================================================
-   اندازه Canvas
-================================================== */
-
-function resizeCanvas() {
+function resizeFlowerCanvas() {
 
     const rect =
-        canvas.getBoundingClientRect();
+        flowerCanvas.getBoundingClientRect();
 
     const dpr =
         window.devicePixelRatio || 1;
 
-    canvas.width =
+    flowerCanvas.width =
         rect.width * dpr;
 
-    canvas.height =
+    flowerCanvas.height =
         rect.height * dpr;
 
     ctx.setTransform(
@@ -472,51 +925,51 @@ function resizeCanvas() {
         0,
         0
     );
+
 }
 
 
-/* ==================================================
-   باز کردن گل
-================================================== */
+window.openFlower = function() {
 
-function openAnimation() {
+    flowerModal.classList.add(
+        "active"
+    );
 
-    modal.classList.add("active");
+    requestAnimationFrame(
+        function() {
 
-    requestAnimationFrame(() => {
+            resizeFlowerCanvas();
 
-        resizeCanvas();
+            startFlower();
 
-        startFlower();
+        }
+    );
 
-    });
-}
+};
 
 
-/* ==================================================
-   بستن گل
-================================================== */
-
-function closeAnimation() {
+window.closeFlower = function() {
 
     running = false;
 
-    modal.classList.remove("active");
+    flowerModal.classList.remove(
+        "active"
+    );
 
-    if (animationId !== null) {
+    if (
+        flowerAnimationId !== null
+    ) {
 
         cancelAnimationFrame(
-            animationId
+            flowerAnimationId
         );
 
-        animationId = null;
+        flowerAnimationId = null;
+
     }
-}
 
+};
 
-/* ==================================================
-   تابع easing
-================================================== */
 
 function easeOut(t) {
 
@@ -525,12 +978,9 @@ function easeOut(t) {
             1 - t,
             3
         );
+
 }
 
-
-/* ==================================================
-   رسم گلبرگ سه‌بعدی
-================================================== */
 
 function drawPetal(
     cx,
@@ -539,17 +989,12 @@ function drawPetal(
     length,
     width,
     progress,
-    colors,
-    rotation
+    colors
 ) {
 
     if (progress <= 0)
         return;
 
-
-    /*
-     * پیشرفت رشد گلبرگ
-     */
 
     const p =
         easeOut(
@@ -560,17 +1005,9 @@ function drawPetal(
         );
 
 
-    /*
-     * طول فعلی
-     */
-
     const L =
         length * p;
 
-
-    /*
-     * خم شدن گلبرگ
-     */
 
     const bend =
         Math.sin(
@@ -578,20 +1015,12 @@ function drawPetal(
         ) * 45;
 
 
-    /*
-     * مرکز گلبرگ
-     */
-
     const dx =
         Math.cos(angle);
 
     const dy =
         Math.sin(angle);
 
-
-    /*
-     * نقطه انتهایی
-     */
 
     const tipX =
         cx +
@@ -609,10 +1038,6 @@ function drawPetal(
         ) * bend;
 
 
-    /*
-     * عمود بر جهت گلبرگ
-     */
-
     const px =
         -Math.sin(angle);
 
@@ -620,17 +1045,9 @@ function drawPetal(
         Math.cos(angle);
 
 
-    /*
-     * عرض گلبرگ
-     */
-
     const W =
         width * p;
 
-
-    /*
-     * نقاط کناری
-     */
 
     const leftX =
         cx +
@@ -650,10 +1067,6 @@ function drawPetal(
         py * W * .12;
 
 
-    /*
-     * نقاط میانی برای فرم سه‌بعدی
-     */
-
     const midX =
         cx +
         dx * L * .52;
@@ -664,20 +1077,11 @@ function drawPetal(
 
 
     const sideX =
-        px *
-        W *
-        .55;
-
+        px * W * .55;
 
     const sideY =
-        py *
-        W *
-        .55;
+        py * W * .55;
 
-
-    /*
-     * گرادیان سه‌بعدی
-     */
 
     const gradient =
         ctx.createLinearGradient(
@@ -708,10 +1112,6 @@ function drawPetal(
         "#180018"
     );
 
-
-    /*
-     * شکل گلبرگ
-     */
 
     ctx.beginPath();
 
@@ -758,29 +1158,19 @@ function drawPetal(
     ctx.closePath();
 
 
-    /*
-     * سایه بیرونی
-     */
-
     ctx.shadowBlur =
         18 * p;
 
     ctx.shadowColor =
         colors[0];
 
-
     ctx.fillStyle =
         gradient;
 
     ctx.fill();
 
-
     ctx.shadowBlur = 0;
 
-
-    /*
-     * خط روشن روی گلبرگ
-     */
 
     ctx.beginPath();
 
@@ -813,60 +1203,8 @@ function drawPetal(
 
     ctx.stroke();
 
-
-    /*
-     * رگه‌های گلبرگ
-     */
-
-    for (
-        let vein = 1;
-        vein <= 4;
-        vein++
-    ) {
-
-        const vp =
-            vein / 5;
-
-        const vx =
-            cx +
-            (tipX - cx) *
-            vp;
-
-        const vy =
-            cy +
-            (tipY - cy) *
-            vp;
-
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            vx,
-            vy
-        );
-
-        ctx.lineTo(
-            vx +
-            px * W * .25,
-
-            vy +
-            py * W * .25
-        );
-
-        ctx.strokeStyle =
-            "rgba(255,255,255,.16)";
-
-        ctx.lineWidth = .8;
-
-        ctx.stroke();
-    }
-
 }
 
-
-/* ==================================================
-   رسم مرکز گل
-================================================== */
 
 function drawCenter(
     cx,
@@ -887,10 +1225,6 @@ function drawCenter(
         10 +
         p * 15;
 
-
-    /*
-     * هاله
-     */
 
     const glow =
         ctx.createRadialGradient(
@@ -941,10 +1275,6 @@ function drawCenter(
     ctx.fill();
 
 
-    /*
-     * دانه‌های مرکز
-     */
-
     for (
         let i = 0;
         i < 28;
@@ -959,20 +1289,17 @@ function drawCenter(
 
 
         const r =
-            radius *
-            .55;
+            radius * .55;
 
 
         const x =
             cx +
-            Math.cos(a) *
-            r;
+            Math.cos(a) * r;
 
 
         const y =
             cy +
-            Math.sin(a) *
-            r;
+            Math.sin(a) * r;
 
 
         ctx.beginPath();
@@ -985,10 +1312,12 @@ function drawCenter(
             Math.PI * 2
         );
 
+
         ctx.fillStyle =
             i % 2 === 0
             ? "#ffd600"
             : "#ff9100";
+
 
         ctx.fill();
 
@@ -996,10 +1325,6 @@ function drawCenter(
 
 }
 
-
-/* ==================================================
-   شروع انیمیشن
-================================================== */
 
 function startFlower() {
 
@@ -1016,19 +1341,21 @@ function startFlower() {
 
         if (
             !running ||
-            !modal.classList.contains(
+            !flowerModal.classList.contains(
                 "active"
             )
         ) {
 
-            animationId = null;
+            flowerAnimationId =
+                null;
 
             return;
+
         }
 
 
         const rect =
-            canvas.getBoundingClientRect();
+            flowerCanvas.getBoundingClientRect();
 
 
         const cw =
@@ -1059,10 +1386,6 @@ function startFlower() {
         );
 
 
-        /*
-         * پاک کردن
-         */
-
         ctx.clearRect(
             0,
             0,
@@ -1070,10 +1393,6 @@ function startFlower() {
             ch
         );
 
-
-        /*
-         * پس‌زمینه
-         */
 
         const bg =
             ctx.createRadialGradient(
@@ -1114,11 +1433,8 @@ function startFlower() {
         );
 
 
-        /*
-         * گلبرگ‌ها یکی‌یکی ظاهر شوند
-         */
-
         const petalCount = 8;
+
 
         const length =
             Math.min(
@@ -1133,10 +1449,6 @@ function startFlower() {
                 ch
             ) * .20;
 
-
-        /*
-         * هر گلبرگ با فاصله
-         */
 
         for (
             let i = 0;
@@ -1155,30 +1467,11 @@ function startFlower() {
                 ) / 65;
 
 
-            /*
-             * زاویه گلبرگ
-             */
-
             const angle =
                 i *
                 Math.PI *
                 2 /
-                petalCount
-                +
-                Math.sin(
-                    frame * .004
-                ) * .04;
-
-
-            /*
-             * حرکت آرام بعد از کامل شدن
-             */
-
-            const finalProgress =
-                Math.max(
-                    0,
-                    progress
-                );
+                petalCount;
 
 
             drawPetal(
@@ -1192,19 +1485,17 @@ function startFlower() {
 
                 width,
 
-                finalProgress,
+                Math.max(
+                    0,
+                    progress
+                ),
 
-                petalColors[i],
+                petalColors[i]
 
-                0
             );
 
         }
 
-
-        /*
-         * مرکز گل
-         */
 
         const centerProgress =
             Math.max(
@@ -1219,10 +1510,6 @@ function startFlower() {
             centerProgress
         );
 
-
-        /*
-         * ذرات کوچک اطراف گل
-         */
 
         if (frame > 150) {
 
@@ -1242,22 +1529,19 @@ function startFlower() {
                     (
                         1.15 +
                         Math.sin(
-                            frame * .01 +
-                            i
+                            frame * .01 + i
                         ) * .08
                     );
 
 
                 const x =
                     cx +
-                    Math.cos(a) *
-                    r;
+                    Math.cos(a) * r;
 
 
                 const y =
                     cy +
-                    Math.sin(a) *
-                    r;
+                    Math.sin(a) * r;
 
 
                 ctx.beginPath();
@@ -1270,8 +1554,10 @@ function startFlower() {
                     Math.PI * 2
                 );
 
+
                 ctx.fillStyle =
                     "rgba(255,255,255,.55)";
+
 
                 ctx.fill();
 
@@ -1283,7 +1569,7 @@ function startFlower() {
         frame++;
 
 
-        animationId =
+        flowerAnimationId =
             requestAnimationFrame(
                 animate
             );
@@ -1292,45 +1578,51 @@ function startFlower() {
 
 
     animate();
+
 }
 
 
-/* ==================================================
-   کلیک بیرون Modal
-================================================== */
-
-modal.addEventListener(
+flowerModal.addEventListener(
     "click",
     function(e) {
 
         if (
-            e.target === modal
+            e.target === flowerModal
         ) {
 
-            closeAnimation();
+            closeFlower();
 
         }
 
     }
 );
 
-
-/* ==================================================
-   Escape
-================================================== */
 
 document.addEventListener(
     "keydown",
     function(e) {
 
-        if (
-            e.key === "Escape" &&
-            modal.classList.contains(
-                "active"
-            )
-        ) {
+        if (e.key === "Escape") {
 
-            closeAnimation();
+            if (
+                robotModal.classList.contains(
+                    "active"
+                )
+            ) {
+
+                closeRobot();
+
+            }
+
+            if (
+                flowerModal.classList.contains(
+                    "active"
+                )
+            ) {
+
+                closeFlower();
+
+            }
 
         }
 
@@ -1338,25 +1630,9 @@ document.addEventListener(
 );
 
 
-/* ==================================================
-   تغییر اندازه صفحه
-================================================== */
-
 window.addEventListener(
     "resize",
-    function() {
-
-        if (
-            modal.classList.contains(
-                "active"
-            )
-        ) {
-
-            resizeCanvas();
-
-        }
-
-    }
+    resizeFlowerCanvas
 );
 
 </script>
